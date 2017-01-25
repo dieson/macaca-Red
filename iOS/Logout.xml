@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Log out">
+
+	<test name="Log out test">
+		<parameter name="country" value="Australia" />
+		<parameter name="userName" value="ran.zuo@lexisnexis.com" />
+		<parameter name="passWord" value="dieson" />
+		<classes>
+			<class name="com.dieson.ios_test.LogoutTest" />
+		</classes>
+	</test> 
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
+	</listeners>
+</suite> 

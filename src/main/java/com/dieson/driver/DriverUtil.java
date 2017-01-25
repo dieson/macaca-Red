@@ -40,12 +40,12 @@ public class DriverUtil {
 
 		try {
 			File imageFile = new File("");
-			String courseFile = imageFile.getCanonicalPath() + "/screenshot/" + imageName;
+			String courseFile = imageFile.getCanonicalPath() + "/screenshot/" + imageName + ".png";
 			driver.saveScreenshot(courseFile);
 
 			ReportUtil.screenLog(courseFile);
 		} catch (Exception e) {
-			e.printStackTrace();
+			ReportUtil.log(e.toString());
 			ReportUtil.log("[Fail] Screenshot");
 		}
 	}

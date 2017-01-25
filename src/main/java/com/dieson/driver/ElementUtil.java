@@ -14,12 +14,17 @@ import macaca.client.common.GetElementWay;
  * @date 创建时间：16 Jan 2017 1:13:39 pm
  */
 public class ElementUtil {
-	private MacacaClient driver = new MacacaClient();
+	protected MacacaClient driver = new MacacaClient();
 
 	private Init init = new Init(driver);
 	private DriverUtil du = new DriverUtil(driver);
 	private FindElementUtil feu = new FindElementUtil(driver);
 
+	/**
+	 * Start app
+	 * @param platform
+	 * @throws Exception
+	 */
 	public void start(String platform) throws Exception {
 		if (platform.equals("ios")) {
 			init.startiOS();
@@ -30,7 +35,14 @@ public class ElementUtil {
 			Assert.fail();
 		}
 	}
-
+	
+	/**
+	 * Quit app.
+	 */
+	public void quit() {
+		init.quit();
+	}
+	
 	/**
 	 * clear value
 	 * 
@@ -56,7 +68,7 @@ public class ElementUtil {
 	 * @param elementName
 	 */
 	public void input(String locator, Object value, String elementName) {
-
+		
 		try {
 			Element element = feu.findElement(locator);
 			element.sendKeys(value.toString());
@@ -64,6 +76,7 @@ public class ElementUtil {
 		} catch (Exception e) {
 			du.screenshot(elementName);
 			ReportUtil.log("[Fail] Unable to input");
+			ReportUtil.log(e.toString());
 			Assert.fail();
 		}
 	}
@@ -80,7 +93,7 @@ public class ElementUtil {
 			ReportUtil.log("[Successful] Click the " + elementName);
 		} catch (Exception e) {
 			du.screenshot(elementName);
-			ReportUtil.log("[Fail] Unable to click");
+			ReportUtil.log("[Fail] Unable to click" + elementName);
 			Assert.fail();
 		}
 	}
@@ -150,5 +163,78 @@ public class ElementUtil {
 		}
 		return exist;
 	}
+	
+	/**
+	 * wait
+	 * @param secound
+	 * @throws Exception
+	 */
+	public void wait(int secound) {
+		try {
+			driver.sleep(secound * 1000);
+		} catch (Exception e) {
+			du.screenshot("wait");
+			ReportUtil.log("[Fail] Waiting for the failure");
+			ReportUtil.log(e.toString());
+			Assert.fail();
+		}
+	}
+	
+	/**
+	 * Sreenshot
+	 */
+	public void screenshot(String imageName) {
+		du.screenshot(imageName);
+	}
 
+	/**
+	 * Get alert text
+	 * 
+	 * @return
+	 */
+	public String alertGetText() {
+		return du.alertGetText();
+	}
+	
+	/**
+	 * Alert accept
+	 */
+	public void alertAccept() {
+		du.alertAccept();
+	}
+	
+	/**
+	 * Alert dismiss
+	 */
+	public void alertDismiss() {
+		du.alertDismiss();
+	}
+	
+	/**
+	 * Get the rect
+	 * @param locator
+	 * @param elementName
+	 * @return
+	 */
+	public Object getRect(String locator, String elementName) {
+		Object rect = new Object();
+		try {
+			rect = feu.findElement(locator).getRect();
+			ReportUtil.log("[Successful] Get the rect " + rect.toString());
+		} catch (Exception e) {
+			du.screenshot(elementName);
+			ReportUtil.log("[Fail] Unable get the " + elementName + "rect");
+			Assert.fail();
+		}
+		return rect;
+	}
+	
+	/**
+	 * tap by coordinate
+	 * @param x
+	 * @param y
+	 */
+	public void tap(int x, int y) {
+		du.tap(x, y);
+	}
 }

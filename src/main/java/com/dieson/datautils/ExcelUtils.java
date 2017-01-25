@@ -17,6 +17,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.Assert;
 
+import com.dieson.utils.ReportUtil;
+
 /**
  * excel data driver
  * 
@@ -35,13 +37,16 @@ public class ExcelUtils implements Iterator<Object[]> {
 	private int curWrite = 0;
 	private String[] columnnName; // title
 
-	public ExcelUtils() {
-	}
-
 	public ExcelUtils(String excelName, String sheet) {
 
 		filePath = path + "/test_data/" + excelName;
 		sheetName = sheet;
+		
+		try {
+			this.readExcel(filePath, sheetName);
+		} catch (Exception e) {
+			ReportUtil.log(e.toString());
+		}
 	}
 
 	public void readExcel(String excelPath, String sheetName) throws Exception {
@@ -61,7 +66,7 @@ public class ExcelUtils implements Iterator<Object[]> {
 			}
 			this.curRowNo++;
 		} catch (Exception e) {
-			e.printStackTrace();
+			ReportUtil.log(e.toString());
 		}
 
 	}

@@ -6,6 +6,8 @@ import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 
+import com.alibaba.fastjson.JSONObject;
+
 import macaca.client.common.GetElementWay;
 
 /**
@@ -87,5 +89,10 @@ public class Util {
 			ReportUtil.log("[Fail] Unable get locator string");
 			return locator;
 		}
+	}
+	
+	public static int getJSONObject(Object obj, String key) {
+		JSONObject json = (JSONObject) obj;
+		return json.getInteger(key).intValue();
 	}
 }

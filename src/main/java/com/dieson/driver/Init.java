@@ -21,9 +21,9 @@ public class Init {
 
 		JSONObject porps = new JSONObject();
 		porps.put("platformName", "ios");
-		porps.put("app", Util.getSystemProperties("PATH_IOS"));
+		//porps.put("app", System.getProperty("user.dir") + Util.getSystemProperties("APPPATH_IOS"));
+		porps.put("bundleId", "au.com.lexisnexis.lexisredios");
 		porps.put("reuse", 1);
-
 		porps.put("deviceName", Util.getSystemProperties("DEVICENAME_IOS"));
 
 		JSONObject desiredCapabilities = new JSONObject();
@@ -37,7 +37,6 @@ public class Init {
 		porps.put("platformName", "android");
 		porps.put("app", Util.getSystemProperties("PATH_ANDROID"));
 		porps.put("reuse", 1);
-
 		porps.put("deviceName", Util.getSystemProperties("DEVICENAME_ANDROID"));
 
 		JSONObject desiredCapabilities = new JSONObject();
