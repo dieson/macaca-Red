@@ -7,6 +7,7 @@ import com.dieson.utils.Util;
 
 import macaca.client.MacacaClient;
 import macaca.client.commands.Element;
+import macaca.client.common.ElementSelector;
 import macaca.client.common.GetElementWay;
 
 /**
@@ -25,7 +26,7 @@ public class ElementUtil {
 	 * @param platform
 	 * @throws Exception
 	 */
-	public void start(String platform) throws Exception {
+	public void start(String platform) {
 		if (platform.equals("ios")) {
 			init.startiOS();
 		} else if (platform.equals("android")) {
@@ -41,6 +42,24 @@ public class ElementUtil {
 	 */
 	public void quit() {
 		init.quit();
+	}
+	
+	/**
+	 * find element
+	 * @param locator
+	 * @return
+	 */
+	public Element findElement(String locator) {
+		return feu.findElement(locator);
+	}
+	
+	/**
+	 * find elements
+	 * @param locator
+	 * @return
+	 */
+	public ElementSelector findElements(String locator) {
+		return feu.findElements(locator);
 	}
 	
 	/**
@@ -80,16 +99,15 @@ public class ElementUtil {
 			Assert.fail();
 		}
 	}
-
+	
 	/**
-	 * Click on an element.
-	 * 
-	 * @param locator
+	 * click an elelement from element 
+	 * @param element	
 	 * @param elementName
 	 */
-	public void click(String locator, String elementName) {
+	public void click(Element element, String elementName) {
 		try {
-			feu.findElement(locator).click();
+			element.click();
 			ReportUtil.log("[Successful] Click the " + elementName);
 		} catch (Exception e) {
 			du.screenshot(elementName);
@@ -98,6 +116,17 @@ public class ElementUtil {
 		}
 	}
 
+	/**
+	 * Click on an element from locator
+	 * 
+	 * @param locator
+	 * @param elementName
+	 */
+	public void click(String locator, String elementName) {
+		Element element = feu.findElement(locator);
+		this.click(element, elementName);
+	} 
+		
 	/**
 	 * get text
 	 * 

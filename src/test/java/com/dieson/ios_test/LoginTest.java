@@ -29,7 +29,7 @@ public class LoginTest {
 	}
 
 	@BeforeTest
-	public void beforeTest() throws Exception {
+	public void beforeTest() {
 		screen = new RedIOS();
 		screen.start("ios");
 	}

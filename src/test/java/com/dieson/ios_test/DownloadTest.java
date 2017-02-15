@@ -1,23 +1,22 @@
 package com.dieson.ios_test;
 
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.dieson.driver.RedIOS;
-import com.dieson.ios_page.ContactusPage;
+import com.dieson.ios_page.DownloadPage;
 import com.dieson.ios_page.LoginPage;
 import com.dieson.ios_page.LogoutPage;
 
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.AfterTest;
-
-public class ContactusTest {
+public class DownloadTest {
 	private RedIOS screen;
 	
 	@Test
-	public void contactus() {
-		ContactusPage contact = new ContactusPage(screen);
-		contact.contactusVerify();
+	public void download() {
+		DownloadPage download = new DownloadPage(screen);
+		download.downloadAll();
 	}
 
 	@Parameters({"userName", "passWord", "country"})

@@ -20,7 +20,7 @@ public class LogoutTest {
 
 	@Parameters({"userName", "passWord", "country"})
 	@BeforeTest
-	public void beforeTest(String userName, String passWord, String country) throws Exception {
+	public void beforeTest(String userName, String passWord, String country) {
 		screen = new RedIOS();
 		screen.start("ios");
 

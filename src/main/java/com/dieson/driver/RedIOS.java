@@ -32,4 +32,22 @@ public class RedIOS extends ElementUtil {
 			super.click("NAME:Don’t Allow", "Don’t Allow");
 		}
 	}
+	
+	public void onGroup() {
+		ReportUtil.log("On Group mode.");
+		super.click("NAME:Edit", "Edit");
+		if (super.isSelect("CLASS:Switch", "value", "Switch").equals(false)) {
+			super.click("CLASS:Switch", "Switch");
+		}
+		super.click("NAME:Edit", "Edit");
+	}
+	
+	public void offGroup() {
+		ReportUtil.log("Off Group mode.");
+		super.click("NAME:Edit", "Edit");
+		if (super.isSelect("CLASS:Switch", "value", "Switch").equals(true)) {
+			super.click("CLASS:Switch", "Switch");
+		}
+		super.click("NAME:Edit", "Edit");
+	}
 }
