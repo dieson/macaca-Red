@@ -1,7 +1,7 @@
 package com.dieson.test;
 
 import com.alibaba.fastjson.JSONObject;
-import com.dieson.utils.Util;
+
 
 /**
  * @author Dieson Zuo
@@ -9,6 +9,12 @@ import com.dieson.utils.Util;
  */
 public class Test {
 	public static void main(String[] args) throws Exception {
+		Object c;
+		
+		boolean a = true;
+		c = a;
+		JSONObject b = (JSONObject) c;
+		System.out.println(b.toString());
 	}
 
 }

@@ -32,7 +32,7 @@ public class ElementUtil {
 		} else if (platform.equals("android")) {
 			init.startAndroid();
 		} else {
-			ReportUtil.log("Unable start Macaca");
+			ReportUtil.log("Unable start Macaca ");
 			Assert.fail();
 		}
 	}
@@ -111,7 +111,7 @@ public class ElementUtil {
 			ReportUtil.log("[Successful] Click the " + elementName);
 		} catch (Exception e) {
 			du.screenshot(elementName);
-			ReportUtil.log("[Fail] Unable to click" + elementName);
+			ReportUtil.log("[Fail] Unable to click " + elementName);
 			Assert.fail();
 		}
 	}
@@ -138,7 +138,7 @@ public class ElementUtil {
 		String msg = "";
 		try {
 			msg = feu.findElement(locator).getText();
-			ReportUtil.log("[Successful] Get the " + elementName);
+			ReportUtil.log("[Successful] Get the " + elementName + ":" + msg);
 		} catch (Exception e) {
 			du.screenshot(elementName);
 			ReportUtil.log("[Fail] Get attribute failure");
@@ -156,15 +156,15 @@ public class ElementUtil {
 	 * @param elementName
 	 * @return
 	 */
-	public String isSelect(String locator, String attriubte, String elementName) {
-		String isSelected = "";
+	public Object getProperty(String locator, String attriubte, String elementName) {
+		Object isSelected = "";
 		try {
 			Element element = feu.findElement(locator);
-			isSelected = element.getProperty(attriubte).toString();
-			ReportUtil.log("[Successful] " + elementName + attriubte + isSelected);
+			isSelected = element.getProperty(attriubte);
+			ReportUtil.log("[Successful] " + elementName + attriubte);
 		} catch (Exception e) {
 			du.screenshot(elementName.toString());
-			ReportUtil.log("[Fail] Not to selected");
+			ReportUtil.log("[Fail] Unable to get attriubte.");
 			ReportUtil.log(e.toString());
 			Assert.fail();
 		}
@@ -247,12 +247,12 @@ public class ElementUtil {
 	 */
 	public Object getRect(String locator, String elementName) {
 		Object rect = new Object();
-		try {
+		try {            
 			rect = feu.findElement(locator).getRect();
 			ReportUtil.log("[Successful] Get the rect " + rect.toString());
 		} catch (Exception e) {
 			du.screenshot(elementName);
-			ReportUtil.log("[Fail] Unable get the " + elementName + "rect");
+			ReportUtil.log("[Fail] Unable get the " + elementName + " rect");
 			Assert.fail();
 		}
 		return rect;
