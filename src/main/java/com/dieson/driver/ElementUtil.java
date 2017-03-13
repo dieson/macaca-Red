@@ -126,6 +126,19 @@ public class ElementUtil {
 		Element element = feu.findElement(locator);
 		this.click(element, elementName);
 	} 
+	
+	public String getText(Element element, String elementName) {
+		String msg = "";
+		try {
+			msg = element.getText();
+			ReportUtil.log("[Successful] Get the " + elementName + ":" + msg);
+		} catch (Exception e) {
+			du.screenshot(elementName);
+			ReportUtil.log("[Fail] Get attribute failure");
+			Assert.fail();
+		}
+		return msg;
+	}
 		
 	/**
 	 * get text
@@ -135,16 +148,8 @@ public class ElementUtil {
 	 * @return
 	 */
 	public String getText(String locator, String elementName) {
-		String msg = "";
-		try {
-			msg = feu.findElement(locator).getText();
-			ReportUtil.log("[Successful] Get the " + elementName + ":" + msg);
-		} catch (Exception e) {
-			du.screenshot(elementName);
-			ReportUtil.log("[Fail] Get attribute failure");
-			Assert.fail();
-		}
-		return msg;
+		Element element = feu.findElement(locator);
+		return this.getText(element, elementName);
 	}
 
 	/**
@@ -265,5 +270,9 @@ public class ElementUtil {
 	 */
 	public void tap(int x, int y) {
 		du.tap(x, y);
+	}
+	
+	public void drag(double xStart, double yStart, double xEnd, double yEnd, double duration, int steps) {
+		du.drag(xStart, yStart, xEnd, yEnd, duration, steps);
 	}
 }
