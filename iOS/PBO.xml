@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="PBO">
+
+	<test name="PBO test">
+		<parameter name="country" value="Australia" />
+		<parameter name="userName" value="ran.zuo@lexisnexis.com" />
+		<parameter name="passWord" value="dieson" />
+		<parameter name="pboName" value="A Practical Guide to Investment Treaties Asia Pacific 2015 (book)" />
+		<classes>
+			<class name="com.dieson.ios_test.PBOTest" />
+		</classes>
+	</test> 
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
+	</listeners>
+</suite> 

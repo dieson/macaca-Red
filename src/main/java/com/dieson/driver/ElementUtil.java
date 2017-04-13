@@ -272,6 +272,15 @@ public class ElementUtil {
 		du.tap(x, y);
 	}
 	
+	/**
+	 * drag by coordinate
+	 * @param xStart
+	 * @param yStart
+	 * @param xEnd
+	 * @param yEnd
+	 * @param duration
+	 * @param steps
+	 */
 	public void drag(double xStart, double yStart, double xEnd, double yEnd, double duration, int steps) {
 		du.drag(xStart, yStart, xEnd, yEnd, duration, steps);
 	}

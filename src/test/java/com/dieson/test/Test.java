@@ -1,6 +1,9 @@
 package com.dieson.test;
 
-import com.alibaba.fastjson.JSONObject;
+import java.util.Properties;
+
+import com.dieson.utils.PropertyUtil;
+
 
 
 /**
@@ -9,12 +12,10 @@ import com.alibaba.fastjson.JSONObject;
  */
 public class Test {
 	public static void main(String[] args) throws Exception {
-		Object c;
-		
-		boolean a = true;
-		c = a;
-		JSONObject b = (JSONObject) c;
-		System.out.println(b.toString());
+		Properties test = new PropertyUtil().loadProperties("/ios_properties/PBOPage.properties");
+		String i = "abc";
+		String j = test.getProperty("TEST");
+		System.out.println(j);
 	}
 
 }

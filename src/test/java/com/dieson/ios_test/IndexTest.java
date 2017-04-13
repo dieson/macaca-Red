@@ -1,37 +1,31 @@
 package com.dieson.ios_test;
 
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.AfterTest;
 
 import com.dieson.driver.RedIOS;
-import com.dieson.ios_page.FTCPage;
+import com.dieson.ios_page.IndexPage;
 import com.dieson.ios_page.LoginPage;
 import com.dieson.ios_page.LogoutPage;
 
-public class FTCTest {
+public class IndexTest {
 	private RedIOS screen;
-	private String ftcName;
-	private FTCPage ftc;
+	private String indexName;
 	
 	@Test
-	public void ftc() {
-		ftc = new FTCPage(screen);
-		ftc.ftc(ftcName);
+	public void index() {
+		IndexPage index = new IndexPage(screen);
+		index.index(indexName);
 	}
 	
-	@Test(dependsOnMethods = "ftc")
-	public void information() {
-		ftc.information(ftcName);
-	}
-
-	@Parameters({"userName", "passWord", "country", "ftcName"})
+	@Parameters({"userName", "passWord", "country", "indexName"})
 	@BeforeTest
-	public void beforeTest(String userName, String passWord, String country, String ftcName) {
+	public void beforeTest(String userName, String passWord, String country, String indexName) {
 		screen = new RedIOS();
 		screen.start("ios");
-		this.ftcName = ftcName;
+		this.indexName = indexName;
 
 		LoginPage login = new LoginPage(screen);
 		login.login(userName, passWord, country);

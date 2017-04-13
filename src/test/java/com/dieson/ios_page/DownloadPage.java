@@ -37,6 +37,8 @@ public class DownloadPage {
 			screen.click(elements.getIndex(i), "Download Button");
 		}
 		
+		screen.drag(475, 142, 15, 142, 1, 1);
+		
 		while (screen.isExistElement(downloading, "Downloading status")) {
 			screen.wait(1);
 		}
