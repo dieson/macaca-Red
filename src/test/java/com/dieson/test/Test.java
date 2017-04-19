@@ -1,8 +1,5 @@
 package com.dieson.test;
 
-import java.util.Properties;
-
-import com.dieson.utils.PropertyUtil;
 
 
 
@@ -12,10 +9,12 @@ import com.dieson.utils.PropertyUtil;
  */
 public class Test {
 	public static void main(String[] args) throws Exception {
-		Properties test = new PropertyUtil().loadProperties("/ios_properties/PBOPage.properties");
-		String i = "abc";
-		String j = test.getProperty("TEST");
-		System.out.println(j);
+		for (int i = 0; i < 5; i++) {
+			int x = (int) (i + Math.random() * (30 - i));
+			System.out.println(x);
+		}
+		
+		
 	}
 
 }

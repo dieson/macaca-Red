@@ -1,7 +1,10 @@
 package com.dieson.ios_page;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
+import macaca.client.commands.Element;
 import macaca.client.common.ElementSelector;
 
 import org.testng.Assert;
@@ -24,8 +27,7 @@ public class HistoryPage {
 	private final String bookName = HISTORY_PAGE.getProperty("IOS_TITLENAME");
 	private final String tocTitle = HISTORY_PAGE.getProperty("IOS_TOCTITLE");
 	private final String tocList = HISTORY_PAGE.getProperty("IOS_TOCLIST");
-	private final String backButton = HISTORY_PAGE
-			.getProperty("IOS_BACKBUTTON");
+	private final String backButton = HISTORY_PAGE.getProperty("IOS_BACKBUTTON");
 	private final String historyTOCName = HISTORY_PAGE
 			.getProperty("IOS_HISTORYTOCNAME");
 	private final String historyTitleName = HISTORY_PAGE
@@ -39,6 +41,7 @@ public class HistoryPage {
 			.getProperty("IOS_POPTOCNAME");
 	private final String historyNumberContent = HISTORY_PAGE.getProperty("IOS_HISTORYNUMBERCONTENT");
 	private final String historyNumberPublication = HISTORY_PAGE.getProperty("IOS_HISTORYNUMBERPUBLICATION");
+	private final String tableOfContents = HISTORY_PAGE.getProperty("IOS_TABLEOFCONTENTS");
 
 	public HistoryPage(RedIOS screen) {
 		this.screen = screen;
@@ -48,27 +51,35 @@ public class HistoryPage {
 		screen.offGroup();
 		// Open a book.
 		screen.click(title, "Publication");
-		String titleName = screen.getText(bookName, "Title Name");
 		screen.waitProgress();
+		String titleName = screen.getText(bookName, "Title Name");
 
 		// Create a history.
 		String tocNameI = "";
 		String tocNameV = "1";
 		for (int i = 0; !tocNameI.equals(tocNameV); i++) {
-
-			ElementSelector tocListI = screen.findElements(tocList);
+			
+			List<Element> tocListI = new ArrayList<>();
+			for (int j = 1; screen.isExistElement("XPATH://XCUIElementTypeOther[2]/XCUIElementTypeTable[1]/XCUIElementTypeCell[" + j + "]/XCUIElementTypeStaticText[1]", "TOC"); j++) {
+				tocListI.add(screen.findElement("XPATH://XCUIElementTypeOther[2]/XCUIElementTypeTable[1]/XCUIElementTypeCell[" + j + "]/XCUIElementTypeStaticText[1]"));
+			}
+			
 			int tocI = tocListI.size();
 			int x = (int) (i + Math.random() * (tocI - i));
-			tocNameI = screen.getText(tocListI.getIndex(x), "TOC name");
-			screen.click(tocListI.getIndex(x), "TOC");
-
-			ElementSelector tocListV = screen.findElements(tocList);
+			tocNameI = screen.getText(tocListI.get(x), "TOC name");
+			screen.click(tocListI.get(x), "TOC");
+			
+			List<Element> tocListV = new ArrayList<>();
+			for (int j = 1; screen.isExistElement("XPATH://XCUIElementTypeOther[2]/XCUIElementTypeTable[1]/XCUIElementTypeCell[" + j + "]/XCUIElementTypeStaticText[1]", "TOC"); j++) {
+				tocListV.add(screen.findElement("XPATH://XCUIElementTypeOther[2]/XCUIElementTypeTable[1]/XCUIElementTypeCell[" + j + "]/XCUIElementTypeStaticText[1]"));
+			}
 			int tocV = tocListV.size();
 			if (tocV == tocI) {
-				tocNameV = screen.getText(tocListI.getIndex(x), "TOC name");
+				tocNameV = screen.getText(tocListI.get(x), "TOC name");
 			}
 		}
 		screen.click(backButton, "Back to publication");
+		screen.waitProgress();
 
 		// Get the history info of the publication page.
 		String historyTOC = screen.getText(historyTOCName, "History TOC name");
@@ -101,19 +112,27 @@ public class HistoryPage {
 			String tocNameI = "";
 			String tocNameV = "1";
 			for (int i = 0; !tocNameI.equals(tocNameV); i++) {
-
-				ElementSelector tocListI = screen.findElements(tocList);
+				
+				List<Element> tocListI = new ArrayList<>();
+				for (int j = 1; screen.isExistElement("XPATH://XCUIElementTypeOther[2]/XCUIElementTypeTable[1]/XCUIElementTypeCell[" + j + "]/XCUIElementTypeStaticText[1]", "TOC"); j++) {
+					tocListI.add(screen.findElement("XPATH://XCUIElementTypeOther[2]/XCUIElementTypeTable[1]/XCUIElementTypeCell[" + j + "]/XCUIElementTypeStaticText[1]"));
+				}
+				
 				int tocI = tocListI.size();
 				int x = (int) (i + Math.random() * (tocI - i));
-				tocNameI = screen.getText(tocListI.getIndex(x), "TOC name");
-				screen.click(tocListI.getIndex(x), "TOC");
-
-				ElementSelector tocListV = screen.findElements(tocList);
+				tocNameI = screen.getText(tocListI.get(x), "TOC name");
+				screen.click(tocListI.get(x), "TOC");
+				
+				List<Element> tocListV = new ArrayList<>();
+				for (int j = 1; screen.isExistElement("XPATH://XCUIElementTypeOther[2]/XCUIElementTypeTable[1]/XCUIElementTypeCell[" + j + "]/XCUIElementTypeStaticText[1]", "TOC"); j++) {
+					tocListV.add(screen.findElement("XPATH://XCUIElementTypeOther[2]/XCUIElementTypeTable[1]/XCUIElementTypeCell[" + j + "]/XCUIElementTypeStaticText[1]"));
+				}
 				int tocV = tocListV.size();
 				if (tocV == tocI) {
-					tocNameV = screen.getText(tocListI.getIndex(x), "TOC name");
+					tocNameV = screen.getText(tocListI.get(x), "TOC name");
 				}
 			}
+			screen.click(tableOfContents, "Table of contents");
 		}
 		// Get the history number of the content page.
 		screen.click(historyIcon, "History Icon");

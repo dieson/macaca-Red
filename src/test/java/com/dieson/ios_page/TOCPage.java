@@ -1,8 +1,10 @@
 package com.dieson.ios_page;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
-import macaca.client.common.ElementSelector;
+import macaca.client.commands.Element;
 
 import org.testng.Assert;
 
@@ -63,16 +65,23 @@ public class TOCPage {
 		String tocNameV = "1";
 		for (int i = 0; !tocNameI.equals(tocNameV); i++) {
 			
-			ElementSelector tocListI = screen.findElements(tocList);
+			List<Element> tocListI = new ArrayList<>();
+			for (int j = 1; screen.isExistElement("XPATH://XCUIElementTypeOther[2]/XCUIElementTypeTable[1]/XCUIElementTypeCell[" + j + "]/XCUIElementTypeStaticText[1]", "TOC"); j++) {
+				tocListI.add(screen.findElement("XPATH://XCUIElementTypeOther[2]/XCUIElementTypeTable[1]/XCUIElementTypeCell[" + j + "]/XCUIElementTypeStaticText[1]"));
+			}
+			
 			int tocI = tocListI.size();
 			int x = (int) (i + Math.random() * (tocI - i));
-			tocNameI = screen.getText(tocListI.getIndex(x), "TOC name");
-			screen.click(tocListI.getIndex(x), "TOC");
+			tocNameI = screen.getText(tocListI.get(x), "TOC name");
+			screen.click(tocListI.get(x), "TOC");
 			
-			ElementSelector tocListV = screen.findElements(tocList);
+			List<Element> tocListV = new ArrayList<>();
+			for (int j = 1; screen.isExistElement("XPATH://XCUIElementTypeOther[2]/XCUIElementTypeTable[1]/XCUIElementTypeCell[" + j + "]/XCUIElementTypeStaticText[1]", "TOC"); j++) {
+				tocListV.add(screen.findElement("XPATH://XCUIElementTypeOther[2]/XCUIElementTypeTable[1]/XCUIElementTypeCell[" + j + "]/XCUIElementTypeStaticText[1]"));
+			}
 			int tocV = tocListV.size();
 			if (tocV == tocI) {
-				tocNameV = screen.getText(tocListI.getIndex(x), "TOC name");
+				tocNameV = screen.getText(tocListI.get(x), "TOC name");
 			}
 		}
 		String secoundTOC = screen.getText(tocTitle, "TOC title");

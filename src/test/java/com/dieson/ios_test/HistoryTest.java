@@ -17,7 +17,7 @@ public class HistoryTest {
 	@Test
 	public void recentHistory() {
 		history = new HistoryPage(screen);
-		history.recentHistory();
+		//history.recentHistory();
 	}
 	
 	@Test(dependsOnMethods = "recentHistory")
