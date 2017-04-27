@@ -70,7 +70,7 @@ public class ElementUtil {
 	 */
 	public void clear(String locator, String elementName) {
 		try {
-			feu.findElement(locator).clearText();
+			this.findElement(locator).clearText();
 			ReportUtil.log("[Successful] Clear the " + elementName);
 		} catch (Exception e) {
 			du.screenshot(elementName);

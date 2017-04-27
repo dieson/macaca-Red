@@ -25,7 +25,7 @@ public class Init {
 			// porps.put("app", System.getProperty("user.dir") +
 			// Util.getSystemProperties("APPPATH_IOS"));
 			porps.put("bundleId", "au.com.lexisnexis.lexisredios");
-			porps.put("reuse", 1);
+			porps.put("reuse", 3);
 			porps.put("deviceName", Util.getSystemProperties("DEVICENAME_IOS"));
 
 			JSONObject desiredCapabilities = new JSONObject();
