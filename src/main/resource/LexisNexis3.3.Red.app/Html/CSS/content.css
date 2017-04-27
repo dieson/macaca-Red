@@ -1,0 +1,420 @@
+﻿/*
+CSS file for publication content/index on iOS, 
+Compare to common.css, some new stylesheet is add, and this file is used to override some style which
+defined in common.css as well.
+*/
+body{
+  background-color:#ECECEC;
+  margin:0px;
+  font-family: "Helvetica Neue";
+  word-wrap:break-word;
+
+}
+div.loading{
+  width:100%;
+  text-align:center;
+  display:none;
+  overflow:hidden;
+}
+div.loading span{
+  
+}
+img.loading{
+  height:20px;
+}
+
+div.page_container{
+  /*
+  border-color:#efefef;
+  border : 1px solid grey;
+  border-left: 0;
+  border-right:0;
+  */
+  background-color:#FFFFFF;
+  margin-bottom:30px;
+  margin-top:-1px;
+  min-height:100%;
+
+}
+
+div.next_page{
+  min-height:100px;
+}
+
+.hidden{
+  display:none;
+}
+
+
+#nextPageFrame{
+  border-style: solid solid none solid;
+  border-width:1 1 0 1;
+  border-color:#efefef;
+  height:20px;
+  width:90%;
+  margin-left:5%;
+  background-color:#FFFFFF;
+}
+
+#previousPageFrame{
+  border-style: none solid solid solid;
+  border-width:0 1 1 1;
+  border-color:#efefef;
+  height:20px;
+  width:90%;
+  margin-left:5%;
+  background-color:#FFFFFF;
+}
+
+.loadingtitle{
+  font-size:10pt;
+  color:#929292;
+  overflow:hidden;
+}
+
+div.nocontent{
+  height:100%;
+  width:100%;
+  background-color:white;
+}
+div.nocontent span{
+  width: 100%;
+    height: 100px;
+    line-height:30px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    color:#AAAAAA;
+}
+
+
+#downpos{
+  width:100%;
+  height:1px;
+
+}
+
+#footer{
+  width:100%;
+  height:1px;
+}
+
+/*override class defined in common_content.css*/
+aside.comntry {
+/*  padding-left: 0px;*/
+/*  padding-right: 0px;*/
+/*  margin-left: 0px;*/
+/*  margin-right: 0px;*/
+  
+}
+a.hiddenhyperlink { 
+    display: none;
+}
+
+ a.plaintexthyperlink  {
+    color:inherit;
+    text-decoration:none;
+    pointer-events:none;
+ }
+
+ hr.hiddenhyperlink {
+    display: none;
+
+  }
+
+//Tag & Note 
+img.noteIcon{
+  position: absolute;
+  /*left: 10px;*/
+  width: 16px;
+  height: 16px;
+  -webkit-user-select: none;
+}
+span.noteIcon{
+  position:absolute;
+  left:15px;
+  -webkit-user-select: none;
+}
+
+/*highlight*/
+span.highlight {
+    background-color: #fff67b;
+    border-radius: 3px;
+    /*text-shadow: 0px -1px 1px white;*/
+}
+
+
+.circle {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px; 
+  display:inline-block;
+  margin:0 0 0 -8px;
+}
+.circle_white{
+  background-color:white; 
+  margin:0 0 0 -6px;
+}
+.circle_1{
+  z-index: 1000;
+  margin:0 0 0 0;
+}
+
+.tagIcon{
+  position: absolute;
+    right: 15px;
+    -webkit-user-select:none;
+  text-indent:0;
+}
+
+div.subrul>span.designum{
+  position:static!important;
+  display:inline-block;
+  background-color:white;
+}
+
+table{
+    border-collapse:collapse;
+  position:static;
+  font-size:100%;
+}
+
+blockquote {
+  font-size: 0.8em;
+}
+
+h3 {
+  /*text-shadow: 1px 1px 0px #dddddd;*/
+  font-weight: bold;
+  font-size: 12pt;
+  /*line-height: 19.5pt;
+  background-color: blue;*/
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 11pt;
+  /* line-height: 17pt; */
+  /*background-color: yellow;*/
+
+}
+
+.fnlabel {
+    color:red;
+  /*width: 40px;
+    position: absolute;
+    text-indent: -33px; */
+    font-style: normal;
+  /*font-weight: bold;*/
+    font-size: 9pt;
+    display: inline-block;
+}
+ 
+.footnote {
+    font-style: normal;
+    font-size: 10pt;
+    color: rgba(154,154,154,1);
+    /*line-height: 21pt;
+    padding-left: 40pt;
+    padding-bottom: 5px;*/
+}
+ 
+.footnotelist {
+  /*margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 15px;
+    padding-right: 50px; */
+    font-weight: normal;
+    font-size: 12pt;
+    line-height: 17pt;
+}
+
+th{
+    font-weight: bold;
+    font-size: 11pt;
+    line-height: 18pt;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+.pagenum {
+  /* background: rgba(243,94,144,0.3); */
+    position: absolute;
+    right: 3em;
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+.subsect {
+  padding-top: 0.2em;
+  padding-bottom: 0.5em;
+}
+H3.sectiontitle>.designum {
+  padding-top: 0.25em;
+  font-size: 1.00em;
+  display: block;
+}
+
+.histnote {
+  font-size: 10pt;
+  color: #525252;
+  padding-bottom: -0.2em;
+}
+
+#div_container{
+   max-width: 1367px;
+}
+div.main{
+   max-width: 1367px;
+}
+
+aside.comntry {
+  position:static;
+}
+
+img{
+  max-width:100%;
+}
+.tagiconellipse{
+  text-align:left;
+  display:inline;
+  margin:0 0 0 -3;
+  color:gray;
+  line-height:10px;
+}
+
+img.tagiconellipse{
+  width:10px;
+  height:10px;
+}
+
+
+h1 {
+    color: #0000FF;
+    font-weight: bold;
+    font-size: 140%;/*14pt;*/
+}
+ 
+h2 {
+    font-weight: bold;
+    font-size: 130%;/*13pt;*/
+}
+ 
+h3 {
+    /*text-shadow: 1px 1px 0px #dddddd;*/
+    font-weight: bold;
+  font-size: 120%;/*12pt;*/
+}
+ 
+h4 {
+    font-weight: bold;
+    font-size: 110%/*11pt;*/
+}
+
+ul{
+  -webkit-padding-start:15px;
+  margin-left:0px;
+}
+
+td{
+  -webkit-touch-callout: none;
+  -webkit-user-select:none;
+}
+span{
+  -webkit-touch-callout: initial;
+  -webkit-user-select:initial;
+}
+
+table.topbot{
+       border-top:1px solid;
+       border-bottom:1px solid;
+}
+.align-center
+{
+  text-align:center;
+}
+.align-right
+{
+  text-align:right;
+}
+.valign-top
+{
+  vertical-align:top;
+}
+.valign-middle
+{
+    vertical-align: middle;
+}
+.valign-bottom
+{
+  vertical-align:bottom;
+}
+img{
+  -webkit-touch-callout: none;
+  -webkit-user-select:none;
+}
+
+.empoweringlegislation
+{
+  display: block;
+  text-align: right;
+}
+span.ib
+{
+    font-weight: bold;
+       font-style: italic;   
+}
+
+
+// below six css is for partial print
+
+table.NoteTableForPrint{
+         border-collapse:collapse;
+         position:absolute;
+         font-size:100%;
+}
+
+td.noteTextColIcon
+{
+         width:20px;
+         vertical-align:middle;
+}
+td.noteTextColTag
+{
+         width:30px;
+         vertical-align:middle;
+}
+td.noteTextColText
+{
+         word-wrap: break-word;
+         background-color: #F7F7F7;
+         padding: 8px 12px 8px 12px;
+         border: 1px;
+         border-color: gray;
+         font-size:11pt;
+}
+tr.noteTextRow
+{
+         border-bottom: solid 10px #fff;
+}
+
+span.fixedNotePanel
+{        
+         display:inline-block;
+         width:40px;
+}
+
+span.fixedNotePanel>span.noteNumberForPrint
+{        width:15px;
+         display:inline-block;
+}
+
+span.fixedNotePanel>img.annotationnoteicon_print
+{        
+         display:inline-block;
+}
+

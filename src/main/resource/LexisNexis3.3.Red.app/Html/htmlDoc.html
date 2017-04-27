@@ -1,0 +1,55 @@
+<html>
+    <head>
+	    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<META HTTP-EQUIV="Pragma" CONTENT="no-cache"/>
+		<META HTTP-EQUIV="Expires" CONTENT="-1"/>
+
+		<link rel="stylesheet" href="./CSS/common.css" type="text/css" />
+		<link rel="stylesheet" href="./CSS/content.css" type="text/css" />
+		#PLACE_HOLDER_PBO_CSS#      <!--priority low-->
+		#PLACE_HOLDER_INDEX_CSS#    <!--priority low-->
+		#PLACE_HOLDER_COUNTRY_CSS#  <!--priority medium-->
+		#PLACE_HOLDER_CaseTable_CSS#  <!--priority medium-->
+		#PLACE_HOLDER_HV_CSS#       <!--priority medium-->
+		#PLACE_HOLDER_LOCAL_CSS#    <!--priority high-->
+
+        <script type="text/javascript" src='./JS/lib/jquery-1.8.3.min.js'></script>
+        <script type="text/javascript" src='./JS/lib/jquery.scrollTo.min.js'></script>
+        <script type="text/javascript" src='./JS/lib/hilitor.js'></script>
+        <script type="text/javascript" src='./JS/lib/rangy-core.js'></script>
+        <script type="text/javascript" src='./JS/lib/rangy-serializer.js'></script>
+        <script type="text/javascript" src='./JS/lib/rangy-classapplier.js'></script>
+        <script type="text/javascript" src='./JS/lib/rangy-highlighter.js'></script>
+
+        <script type="text/javascript" src='./JS/red.core.js'></script>
+        <script type="text/javascript" src='./JS/red.search.js'></script>
+        <script type="text/javascript" src='./JS/red.annotation.js'></script>
+        <script type="text/javascript" src='./JS/red.ready.js'></script>
+
+        #PLACE_HOLDER_SCROLL_SCRIPT#
+
+	</head>   
+	  
+	<body>
+		<div id="beginloading" class="loading">
+			<div id="previousPageFrame"></div>
+	    	<img class="loading" src="../Images/Content/Loading.gif"/>
+	    	<br/>
+	    	<span id="beginLoadingTitle" data-tocid="#PREVIOUS_PAGE_TOCID#"  class="loadingtitle">#PREVIOUS_PAGE_TITLE#</span>
+	    </div>
+
+		<div id = "PublicationCoverForPrint"></div>
+		
+		<div id="content">#CONTENT#</div>
+
+	    <div id="endloading" class="loading">
+	    	<img class="loading" src="../Images/Content/Loading.gif"/>
+	    	<br/>
+	    	<span id="endLoadingTitle" data-tocid="#NEXT_PAGE_TOCID#" class="loadingtitle">#NEXT_PAGE_TITLE#</span>
+	    	<div id="nextPageFrame"></div>
+	    </div>
+
+	    <div id="data_container" data-highlightedtocid="#PLACE_HOLDER_HIGHLIGHTED_TOCID#" data-highlightedkeyword="#PLACE_HOLDER_HIGHLIGHTED_KEYWORD#" data-pdffile="#PDF#" data-scrolltoid="#PLACE_HOLDER_SCROLL_TO_ID#" data-ispbo="#ISPBO#" data-pbopagenum="#PLACE_HOLDER_PBO_PAGE_NUM#" data-scolltodata="#PLACE_HOLDER_SCROLL_TO_DATA#" data-scolltoanchor="#PLACE_HOLDER_SCROLL_TO_ANCHOR#"> </div>
+		<div id="document_ready_script_container" class="hidden">#DOCUMENT_READY_SCRIPT#</div>
+	</body>
+</html>

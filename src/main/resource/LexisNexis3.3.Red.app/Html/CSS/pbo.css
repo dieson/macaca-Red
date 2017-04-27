@@ -1,0 +1,36 @@
+﻿.pagebreak{
+	background-color: #ececec;
+	width:3000px;
+	height:60px;
+	padding-top:30px;
+	margin-top:50px;
+	margin-bottom: 20px;
+	margin-left:-10em;
+	margin-right:-10em;
+	-webkit-touch-callout: none;
+	-webkit-user-select:none;
+}
+
+.pagebreak span{
+	-webkit-touch-callout: none;
+	-webkit-user-select:none;
+}
+
+.pagenum{
+	position:static;
+	background-color: #FFFFFF;
+	width:3000px;
+	display:block;
+	text-align:right;
+	height:30pt;
+	padding-top:30px;
+}
+.pagenum span{
+	position:absolute;
+	right:4.5em;
+}
+
+div.page_container{
+	margin-bottom:0px;	
+	overflow:hidden;
+}

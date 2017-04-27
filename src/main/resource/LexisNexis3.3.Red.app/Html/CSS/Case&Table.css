@@ -1,0 +1,169 @@
+﻿/************************************** 
+*Styles for the table of defined terms*
+***************************************/
+
+/* For the table of tos*/
+table.tod
+{
+    width:100%;
+}
+
+/* style for the thead*/
+.tod-th
+{
+    background:#EFEFEF;
+    border-bottom:none;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+/* for padding thead left and right in tod table */
+th.tod-th>span.wrapper-span
+{
+    padding-left:10px;
+    padding-right:10px;
+    font-size:10pt;
+}
+/* for padding form the top and bottom in tod table */
+td.tod-td
+{
+    padding-top:5px;
+    padding-bottom:5px;    
+}
+/* for padding left & right in tod table */
+td.tod-td>span.wrapper-span
+{
+    padding-left:10px;
+    padding-right:10px;
+    font-size:11pt;
+    display:block;
+}
+/* Border to the row in tod table*/
+.tod-tr
+{
+    border-top:1pt solid #EFEFEF;    
+}
+
+/* tod table title styles*/
+.tod-title
+{
+    font-size:14pt;
+    font-weight:bold;
+    color:#000000;
+    line-height:16pt;
+}
+
+/******************************
+*Styles for the Table of cases*
+*******************************/
+
+/* For the table of toc*/
+table.toc
+{
+width:100%;    
+}
+/*for the table border in toc table*/ 
+
+.toc-tr
+{
+    border-bottom:1pt solid #EFEFEF;
+    border-top:1pt solid #EFEFEF;    
+}
+
+/* for the casename in first column*/
+.toc-td>span[class='citation_wrapper-span']>span[class='it']
+{
+ display:block;
+ color: #000000;
+ font-weight: bold;
+ font-size: 12pt;
+ line-height:16pt;
+}
+/* for the default style for the col of toc table*/
+td.toc-td>span.wrapper-span
+{
+    padding-left:10px;
+    padding-right:10px;
+    font-size:11pt;
+    display:block;
+}
+/* for the first col in the toc table */
+td.toc-td>span.citation_wrapper-span
+{
+    padding-left:10px;
+    padding-right:10px;
+    font-size:9pt;
+    display:block;
+}
+/* for the second col in the toc table */
+td.toc-td>span.pararef_wrapper-span
+{
+    padding-left:10px;
+    padding-right:10px;
+    font-size:12pt;
+    display:block;
+}
+
+/* for the padding from the top and bottom*/
+td.toc-td
+{
+    padding-top:5px;
+    padding-bottom:5px;    
+}
+
+/* for the toc title*/
+.toc-title
+{
+    font-size:14pt;
+    font-weight:bold;
+    color:#000000;
+    line-height:16pt;
+}
+
+/******************************
+*Styles for the Table of Statues*
+*******************************/
+
+/* For the table of tos*/
+table.tos
+{
+    width:100%;
+}
+
+/* style for the thead*/
+.tos-th
+{
+    background:#EFEFEF;
+    border-bottom:none;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+/* for padding thead left and right in tos table */
+th.tos-th>span.wrapper-span
+{
+    padding-left:10px;
+    padding-right:10px;
+    font-size:10pt;
+}
+
+/* for padding form the top and bottom in tos table */
+td.tos-td
+{
+    padding-top:5px;
+    padding-bottom:5px;    
+}
+
+/* Border to the row in tod table*/
+.tos-tr
+{
+    border-bottom:1pt solid #EFEFEF;    
+}
+
+/* for padding left & right in tod table */
+td.tos-td>span.wrapper-span
+{
+    padding-left:10px;
+    padding-right:10px;
+    font-size:11pt;
+    display:block;
+}
