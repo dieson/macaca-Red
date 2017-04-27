@@ -1,6 +1,7 @@
 package com.dieson.test;
 
-import com.dieson.utils.ReportUtil;
+import macaca.client.commands.Element;
+import macaca.client.common.MacacaDriver;
 
 /**
  * @author Dieson Zuo
@@ -8,9 +9,8 @@ import com.dieson.utils.ReportUtil;
  */
 public class Test {
 	public static void main(String[] args) throws Exception {
-		boolean a = true;
-		Object b = a;
-		System.out.println(b.toString());
+		MacacaDriver driver = new MacacaDriver();
+		Element element = new Element(driver);
 	}
 
 }
