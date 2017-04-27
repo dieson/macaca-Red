@@ -51,7 +51,7 @@
 			<groupId>macaca.webdriver.client</groupId>
 			<artifactId>macacaclient</artifactId>
 			<version>2.0.1</version>
-		</dependency> 
+		</dependency>
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
