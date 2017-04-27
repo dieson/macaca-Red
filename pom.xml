@@ -20,6 +20,24 @@
 					<target>1.5</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>iOS/Login.xml</suiteXmlFile>
+						<suiteXmlFile>iOS/ContactUs.xml</suiteXmlFile>
+						<suiteXmlFile>iOS/Download.xml</suiteXmlFile>
+						<suiteXmlFile>iOS/Index.xml</suiteXmlFile>
+						<suiteXmlFile>iOS/FTC.xml</suiteXmlFile>
+						<suiteXmlFile>iOS/PBO.xml</suiteXmlFile>
+						<suiteXmlFile>iOS/TOC.xml</suiteXmlFile>
+						<suiteXmlFile>iOS/History.xml</suiteXmlFile>
+						<suiteXmlFile>iOS/Logout.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -59,6 +77,17 @@
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.9.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.uncommons</groupId>
+			<artifactId>reportng</artifactId>
+			<version>1.1.4</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>3.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->

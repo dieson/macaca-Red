@@ -12,44 +12,54 @@ import macaca.client.MacacaClient;
  */
 public class Init {
 	MacacaClient driver;
-	
+
 	public Init(MacacaClient driver) {
 		this.driver = driver;
 	}
-	
-	public void startiOS() throws Exception {
 
-		JSONObject porps = new JSONObject();
-		porps.put("platformName", "ios");
-		porps.put("app", Util.getSystemProperties("PATH_IOS"));
-		porps.put("reuse", 1);
+	public void startiOS() {
 
-		porps.put("deviceName", Util.getSystemProperties("DEVICENAME_IOS"));
+		try {
+			JSONObject porps = new JSONObject();
+			porps.put("platformName", "ios");
+			// porps.put("app", System.getProperty("user.dir") +
+			// Util.getSystemProperties("APPPATH_IOS"));
+			porps.put("bundleId", "au.com.lexisnexis.lexisredios");
+			porps.put("reuse", 1);
+			porps.put("deviceName", Util.getSystemProperties("DEVICENAME_IOS"));
 
-		JSONObject desiredCapabilities = new JSONObject();
-		desiredCapabilities.put("desiredCapabilities", porps);
-		driver.initDriver(desiredCapabilities);
+			JSONObject desiredCapabilities = new JSONObject();
+			desiredCapabilities.put("desiredCapabilities", porps);
+			driver.initDriver(desiredCapabilities);
+		} catch (Exception e) {
+			ReportUtil.log("Start fail!");
+			ReportUtil.log(e.toString());
+		}
 	}
 
-	public void startAndroid() throws Exception {
+	public void startAndroid() {
 
-		JSONObject porps = new JSONObject();
-		porps.put("platformName", "android");
-		porps.put("app", Util.getSystemProperties("PATH_ANDROID"));
-		porps.put("reuse", 1);
+		try {
+			JSONObject porps = new JSONObject();
+			porps.put("platformName", "android");
+			porps.put("app", Util.getSystemProperties("PATH_ANDROID"));
+			porps.put("reuse", 1);
+			porps.put("deviceName", Util.getSystemProperties("DEVICENAME_ANDROID"));
 
-		porps.put("deviceName", Util.getSystemProperties("DEVICENAME_ANDROID"));
-
-		JSONObject desiredCapabilities = new JSONObject();
-		desiredCapabilities.put("desiredCapabilities", porps);
-		driver.initDriver(desiredCapabilities);
+			JSONObject desiredCapabilities = new JSONObject();
+			desiredCapabilities.put("desiredCapabilities", porps);
+			driver.initDriver(desiredCapabilities);
+		} catch (Exception e) {
+			ReportUtil.log("Start fail!");
+			ReportUtil.log(e.toString());// TODO: handle exception
+		}
 	}
-	
+
 	/**
 	 * Quit app.
 	 */
 	public void quit() {
-		
+
 		try {
 			driver.quit();
 			ReportUtil.log("Quit the app.");
@@ -65,8 +75,8 @@ public class Init {
 	 * @return
 	 */
 	public MacacaClient getDriver() {
-		
+
 		return driver;
 	}
-	
+
 }
